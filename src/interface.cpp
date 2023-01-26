@@ -1,5 +1,4 @@
 #include "RavenInnclude/Interface.h"
-#include <iostream>
 
 void cls()
 {
@@ -20,10 +19,11 @@ void displayOptions(Option options[], int length)
         std::cout << i + 1 << ": " << options[i].name << "\n";
     }
 
-    while (choice < 0 || choice >= length)
+    while (choice < 1 || choice > length)
     {
         std::cin >> choice;
     }
+    choice--;
 
-    (*options[choice - 1].function)();
+    (*options[choice].function)();
 }
