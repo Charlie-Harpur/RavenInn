@@ -3,6 +3,15 @@
 
 #include <iostream>
 
-void createOptions(void (*opts)(), int length);
+struct Option
+{
+    void (*function)();
+    std::string name = "";
+};
+
+void cls();
+void pause();
+
+void displayOptions(Option options[], int length);
 
 #endif

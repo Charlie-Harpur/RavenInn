@@ -4,25 +4,24 @@
 
 using std::cout, std::endl;
 
-void cls();
-void pause();
+void func1();
+void func2();
 
 int main()
 {
+    Option array[2] = {{func1,"func1"}, {func2, "func2"}};
     cout << "TEST" << endl;
-    void (*test[2])() = {pause, cls};
-    createOptions(aTest,  2);
-    cout << "MORE" << endl;
     pause();
+    displayOptions(array, 2);
     return 0;
 }
 
-void cls()
+void func1()
 {
-    system("cls");
+    std::cout << "Func1" << endl;
 }
 
-void pause()
+void func2()
 {
-    system("pause");
+    std::cout << "Func2" << endl;
 }
