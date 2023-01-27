@@ -5,12 +5,12 @@
 
 using std::cout, std::endl;
 
-void func1();
-void func2();
-
 int main()
 {
     Person test;
+    test.setGold(2);
+
+    cout << test.getGold() << endl;
 
     cout << "TEST" << endl;
     pause();

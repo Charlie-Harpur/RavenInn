@@ -5,7 +5,7 @@ Person::Person(): name("Mike Hawk"),
     gender(true),
     allignment(0),
     happiness(0),
-    pStatusEffects(new bool[STATUS_EFFECT_NUM]),
+    pStatusEffects(new bool[NUM_STATUS_EFFECT]),
     gold(0),
     occupation(0),
     pInventory(new int[INVENTORY_SIZE]) {}
@@ -35,6 +35,26 @@ std::string Person::getName() const
     return name;
 }
 
+int Person::getAge() const
+{
+    return age;
+}
+
+bool Person::getGender() const
+{
+    return gender;
+}
+
+int Person::getAllignment() const
+{
+    return allignment;
+}
+
+int Person::getHappiness() const
+{
+    return happiness;
+}
+
 int Person::getGold() const
 {
     return gold;
@@ -43,6 +63,36 @@ int Person::getGold() const
 int Person::getOccupation() const
 {
     return occupation;
+}
+
+void Person::setName(const std::string &rName)
+{
+    name = rName;
+}
+
+void Person::setAge(const int &rAge)
+{
+    age = rAge;
+}
+
+void Person::setGender(const bool &rGender)
+{
+    gender = rGender;
+}
+
+void Person::setAllignment(const int &rAllignment)
+{
+    allignment = rAllignment;
+}
+
+void Person::setHappiness(const int &rHappiness)
+{
+    happiness = rHappiness;
+}
+
+void Person::setGold(const int &rGold)
+{
+    gold = rGold;
 }
 
 void Person::setOccupation(const int &rNewOccupation)
