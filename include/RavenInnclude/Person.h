@@ -7,7 +7,6 @@ class Person
 {
     public:
         static const int INVENTORY_SIZE = 10;
-        static const int NUM_STATUS_EFFECT = 2;
 
         Person();
         ~Person();
@@ -37,7 +36,9 @@ class Person
         int getInventory(int &rI) const;
 
     private:
+        static const int MAX_ALLIGNMENT = 3;
         static const int MAX_HAPPINESS = 3;
+        static const int NUM_STATUS_EFFECT = 2;
         std::string name;
 
         int age;

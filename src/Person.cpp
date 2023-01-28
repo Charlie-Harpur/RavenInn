@@ -72,7 +72,10 @@ void Person::setName(const std::string &rName)
 
 void Person::setAge(const int &rAge)
 {
-    age = rAge;
+    if (rAge > 0)
+        age = rAge;
+    else
+        age = 0;
 }
 
 void Person::setGender(const bool &rGender)
@@ -82,11 +85,25 @@ void Person::setGender(const bool &rGender)
 
 void Person::setAllignment(const int &rAllignment)
 {
+    int sign = 2 * (rAllignment) - 1;
+    if (sign * rAllignment > MAX_ALLIGNMENT)
+    {
+        allignment = rAllignment - (rAllignment - sign * MAX_ALLIGNMENT);
+        return;
+    }
+
     allignment = rAllignment;
 }
 
 void Person::setHappiness(const int &rHappiness)
 {
+    int sign = 2 * (rHappiness > 0) - 1;
+
+    if (sign * rHappiness > MAX_HAPPINESS)
+    {
+        happiness = rHappiness - (rHappiness - sign * MAX_HAPPINESS);
+        return;
+    }
     happiness = rHappiness;
 }
 
@@ -109,8 +126,8 @@ void Person::copyPerson(const Person &rP)
     happiness = rP.happiness;
 
     delete[] pStatusEffects;
-    pStatusEffects = new bool[STATUS_EFFECT_NUM];
-    for (int i = 0; i < STATUS_EFFECT_NUM; i++)
+    pStatusEffects = new bool[NUM_STATUS_EFFECT];
+    for (int i = 0; i < NUM_STATUS_EFFECT; i++)
         pStatusEffects[i] = pStatusEffects[i];
 
     gold = rP.gold;
@@ -120,5 +137,4 @@ void Person::copyPerson(const Person &rP)
     pInventory = new int[INVENTORY_SIZE];
     for (int i = 0; i < INVENTORY_SIZE; i++)
         pInventory[i] = rP.pInventory[i];
-
 }
